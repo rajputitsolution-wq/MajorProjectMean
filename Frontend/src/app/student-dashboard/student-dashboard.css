@@ -1,0 +1,229 @@
+.student-dashboard {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.student-dashboard.collapsed {
+  grid-template-columns: 100px minmax(0, 1fr);
+}
+
+.student-dashboard-sidebar {
+  background: #0d1b34;
+  color: #f8fafc;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1);
+  transition: width 0.3s ease, background 0.3s ease, padding 0.3s ease;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.student-dashboard-sidebar.collapsed {
+  width: 100px;
+  padding: 1rem 0.5rem;
+}
+
+.student-card {
+  margin-bottom: 1.5rem;
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.sidebar-header .header-title {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-header h2 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.sidebar-header .header-subtitle {
+  font-size: 0.85rem;
+  color: rgba(248,250,252,0.75);
+}
+
+.toggle-btn {
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: rgba(255,255,255,0.12);
+  color: #f8fafc;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.student-card h2 {
+  margin-bottom: 1rem;
+}
+
+.student-card p {
+  margin: 0.4rem 0;
+}
+
+.student-dashboard-sidebar.collapsed .student-card h2,
+.student-dashboard-sidebar.collapsed .header-subtitle,
+.student-dashboard-sidebar.collapsed .student-info {
+  display: none;
+}
+
+.student-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.menu-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  background: rgba(255,255,255,0.08);
+  color: #f8fafc;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.2s ease, padding 0.2s ease, justify-content 0.2s ease;
+}
+
+.menu-link i {
+  font-size: 1.2rem;
+}
+
+.menu-link:hover {
+  background: rgba(255,255,255,0.18);
+}
+
+.student-dashboard-sidebar.collapsed .menu-link {
+  justify-content: center;
+  padding: 0.75rem;
+}
+
+.student-dashboard-sidebar.collapsed .link-text {
+  display: none;
+}
+
+.btn-logout {
+  margin-top: 1rem;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: #d9534f;
+  border: none;
+  color: white;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.student-dashboard-sidebar.collapsed .btn-logout {
+  padding: 0.75rem;
+}
+
+.student-dashboard-sidebar.collapsed .btn-logout .link-text {
+  display: none;
+}
+
+.student-dashboard-main {
+  padding: 1rem;
+  background: #eef2ff;
+  border-radius: 0.75rem;
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.05);
+}
+
+.dashboard-header {
+  margin-bottom: 1.5rem;
+}
+
+.description {
+  margin-top: 0.5rem;
+  color: #6b7280;
+}
+
+.student-summary-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.summary-card {
+  background: #fff;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.08);
+}
+
+.summary-card h4 {
+  margin-bottom: 0.75rem;
+}
+
+.profile-form {
+  background: #fff;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.08);
+}
+
+.profile-form h3 {
+  margin-bottom: 1rem;
+}
+
+.input-group {
+  margin-bottom: 1rem;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.input-group input,
+.input-group select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+}
+
+.btn-save {
+  padding: 0.9rem 1.5rem;
+  background: #2563eb;
+  border: none;
+  color: white;
+  border-radius: 0.75rem;
+  cursor: pointer;
+}
+
+.notice {
+  padding: 1rem;
+  border-radius: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.notice.success {
+  background: #ecfdf5;
+  color: #166534;
+}
+
+.notice.error {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.loader {
+  padding: 1rem;
+}

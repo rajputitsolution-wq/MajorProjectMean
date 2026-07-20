@@ -1,0 +1,133 @@
+.student-layout {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.student-layout.collapsed {
+  grid-template-columns: 100px minmax(0, 1fr);
+}
+
+.student-sidebar {
+  background: #0d1b34;
+  color: #f8fafc;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1);
+  min-height: calc(100vh - 2rem);
+  transition: width 0.3s ease, padding 0.3s ease;
+  overflow: hidden;
+}
+
+.student-sidebar.collapsed {
+  width: 100px;
+  padding: 1rem 0.5rem;
+}
+
+.student-sidebar .sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.student-sidebar .header-title {
+  display: flex;
+  flex-direction: column;
+}
+
+.student-sidebar .header-title h2 {
+  margin: 0;
+}
+
+.student-sidebar .header-title span {
+  font-size: 0.85rem;
+  color: rgba(248,250,252,0.75);
+}
+
+.student-sidebar .toggle-btn {
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: rgba(255,255,255,0.12);
+  color: #f8fafc;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar-profile {
+  margin-bottom: 1.5rem;
+}
+
+.sidebar-profile p {
+  margin: 0.35rem 0;
+}
+
+.student-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.nav-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
+  border-radius: 0.75rem;
+  color: #f8fafc;
+  background: rgba(255,255,255,0.08);
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.nav-item i {
+  font-size: 1.2rem;
+}
+
+.nav-item:hover {
+  background: rgba(255,255,255,0.18);
+}
+
+.student-sidebar.collapsed .nav-item {
+  justify-content: center;
+  padding: 0.85rem;
+}
+
+.student-sidebar.collapsed .nav-item span {
+  display: none;
+}
+
+.btn-logout {
+  margin-top: 1rem;
+  width: 100%;
+  padding: 0.85rem 1rem;
+  background: #d9534f;
+  border: none;
+  color: white;
+  border-radius: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.student-sidebar.collapsed .btn-logout {
+  padding: 0.85rem;
+}
+
+.student-sidebar.collapsed .btn-logout span {
+  display: none;
+}
+
+.student-main {
+  min-height: calc(100vh - 2rem);
+}
+
+.container-fluid {
+  padding-top: 2rem;
+}

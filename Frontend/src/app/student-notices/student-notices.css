@@ -1,0 +1,35 @@
+.student-page {
+  display: flex;
+}
+
+.student-content {
+  flex: 1;
+  padding: 2rem;
+}
+
+.section-header {
+  margin-bottom: 1.5rem;
+}
+
+.notice-item {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+}
+
+.meta {
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+
+.empty-state,
+.loading-message,
+.error-message {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background: #fff8db;
+  border: 1px solid #ffe58f;
+  color: #614700;
+}

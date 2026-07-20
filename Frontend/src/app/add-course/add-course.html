@@ -1,0 +1,84 @@
+<div class="add-course-layout">
+  <app-sidebar></app-sidebar>
+
+  <div class="main-content">
+    <div class="add-course-page">
+      <div class="page-heading">
+        <div class="heading-left">
+          <h1>Add Course</h1>
+        </div>
+        <div class="heading-right">
+          <button class="btn-menu" (click)="toggleSidebar()">Menu</button>
+          <a routerLink="/dashboard" class="btn-back">Back to Dashboard</a>
+        </div>
+      </div>
+
+      <form class="course-form" (ngSubmit)="save()">
+        <div class="field-grid">
+          <label>
+            Course Name
+            <input type="text" [(ngModel)]="name" name="name" placeholder="Course name" required />
+          </label>
+          <label>
+            Fees
+            <input type="text" [(ngModel)]="fees" name="fees" placeholder="Course fees" required />
+          </label>
+          <label>
+            Duration
+            <input type="text" [(ngModel)]="duration" name="duration" placeholder="Duration" required />
+          </label>
+          <label>
+            Category
+            <select [(ngModel)]="category" name="category">
+              <option>Basic</option>
+              <option>Programming</option>
+              <option>Other</option>
+            </select>
+          </label>
+        </div>
+
+        <label class="full-width">
+          Description
+          <textarea [(ngModel)]="description" name="description" placeholder="Course description" rows="4" required></textarea>
+        </label>
+
+        <div class="actions">
+          <button type="submit" class="btn-save">Save Course</button>
+          <span *ngIf="saved" class="saved-message">Course saved successfully.</span>
+        </div>
+      </form>
+
+      <div *ngIf="courses.length; else noCourses" class="courses-table-section">
+        <h2>Courses Added</h2>
+        <table class="courses-table">
+          <thead>
+            <tr>
+              <th>Course</th>
+              <th>Category</th>
+              <th>Fees</th>
+              <th>Duration</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let course of courses; let i = index">
+              <td>{{ course.name }}</td>
+              <td>{{ course.category }}</td>
+              <td>{{ course.fees }}</td>
+              <td>{{ course.duration }}</td>
+              <td>{{ course.description }}</td>
+              <td>
+                <button (click)="editCourse(course)">Edit</button>
+                <button (click)="deleteCourse(course._id!, i)">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <ng-template #noCourses>
+        <div class="empty-state">No courses added yet. Add a course above and it will appear here.</div>
+      </ng-template>
+    </div>
+  </div>
+</div>

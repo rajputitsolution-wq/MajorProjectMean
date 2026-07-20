@@ -1,0 +1,46 @@
+<div class="page-layout">
+  <app-sidebar></app-sidebar>
+  <div class="page-content">
+    <div class="page-heading">
+        <div class="heading-left">
+          <h1>Add Student</h1>
+        </div>
+        <div class="heading-right">
+          <button class="btn-menu" (click)="toggleSidebar()">Menu</button>
+          <a routerLink="/dashboard" class="btn-back">Back to Dashboard</a>
+        </div>
+    </div>
+
+    <form class="item-form" (ngSubmit)="saveStudent()">
+      <label>Name</label>
+      <input type="text" [(ngModel)]="name" name="name" required />
+
+      <label>Email</label>
+      <input type="email" [(ngModel)]="email" name="email" required />
+
+      <label>Phone</label>
+      <input type="text" [(ngModel)]="phone" name="phone" />
+
+      <label>Course</label>
+      <input type="text" [(ngModel)]="course" name="course" />
+
+      <button type="submit" class="btn-save">Save Student</button>
+      <span *ngIf="saved" class="saved-message">Student saved successfully.</span>
+    </form>
+
+    <div class="item-list">
+      <h2>Students</h2>
+      <div *ngIf="students.length; else noStudents">
+        <div *ngFor="let student of students" class="item-card">
+          <strong>{{ student.name }}</strong>
+          <p>{{ student.email }}</p>
+          <p>{{ student.phone }}</p>
+          <p>{{ student.course }}</p>
+        </div>
+      </div>
+      <ng-template #noStudents>
+        <p>No students added yet.</p>
+      </ng-template>
+    </div>
+  </div>
+</div>

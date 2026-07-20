@@ -1,0 +1,20 @@
+<div class="category-page">
+  <div class="category-header">
+    <div>
+      <h1>Programming Courses</h1>
+      <p>Courses placed in the Programming section from the Add Course page.</p>
+    </div>
+  </div>
+
+  <div *ngIf="courses.length > 0" class="course">
+    <div *ngFor="let course of courses" class="course-card">
+      <h2>{{ course.name }}</h2>
+      <p class="category-label">{{ course.category }}</p>
+      <p><strong>Fees:</strong> {{ course.fees }}</p>
+      <p><strong>Duration:</strong> {{ course.duration }}</p>
+      <p><strong>Description:</strong> {{ course.description }}</p>
+    </div>
+  </div>
+
+  <div *ngIf="courses.length === 0" class="empty-state">No programming courses added yet. Add one from the Add Course page.</div>
+</div>

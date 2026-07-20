@@ -1,0 +1,29 @@
+<div class="container-fluid mt-5">
+    <div class="row shadow p-4 col-md-6 mx-auto">
+        <h2 class="text-center mb-4">Admin Login</h2>
+        <form [formGroup]="form" (submit)="login()">
+            <div class="mb-3">
+                <label>Email</label>
+                <input
+                    type="email"
+                    class="form-control"
+                    formControlName="email"
+                    placeholder="Enter Email">
+            </div>
+            <div class="mb-3">
+                <label>Password</label>
+                <input
+                    type="password"
+                    class="form-control"
+                    formControlName="password"
+                    placeholder="Enter Password">
+            </div>
+            <button class="btn btn-primary w-100">
+                Login
+            </button>
+        </form>
+        <div class="text-center mt-3">
+            Admin login only. Use the student login page for student access.
+        </div>
+    </div>
+</div>

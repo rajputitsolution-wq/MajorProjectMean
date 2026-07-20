@@ -1,0 +1,37 @@
+<div class="page-layout">
+  <app-sidebar></app-sidebar>
+  <div class="page-content">
+    <div class="page-header">
+      <div>
+        <h1>Notices</h1>
+        <p>Add and review notices stored in MongoDB.</p>
+      </div>
+      <a routerLink="/dashboard" class="btn-back">Back to Dashboard</a>
+    </div>
+
+    <form class="item-form" (ngSubmit)="saveNotice()">
+      <label>Title</label>
+      <input type="text" [(ngModel)]="title" name="title" />
+
+      <label>Message</label>
+      <textarea [(ngModel)]="message" name="message" rows="4" required></textarea>
+
+      <button type="submit" class="btn-save">Save Notice</button>
+      <span *ngIf="saved" class="saved-message">Notice saved successfully.</span>
+    </form>
+
+    <div class="item-list">
+      <h2>Notices</h2>
+      <div *ngIf="notices.length; else noNotices">
+        <div *ngFor="let notice of notices" class="item-card">
+          <strong>{{ notice.title }}</strong>
+          <p>{{ notice.message }}</p>
+          <small>{{ notice.createdAt | date:'medium' }}</small>
+        </div>
+      </div>
+      <ng-template #noNotices>
+        <p>No notices added yet.</p>
+      </ng-template>
+    </div>
+  </div>
+</div>

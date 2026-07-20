@@ -1,0 +1,130 @@
+/* Container - Added a soft shadow and card look */
+.container {
+  max-width: 650px;
+  margin: 50px auto;
+  padding: 40px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
+  font-weight: 600;
+  font-size: 24px;
+}
+
+/* Grid layout */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+/* Full width field */
+.form-group.full {
+  grid-column: 1 / -1;
+}
+
+/* Form group */
+.form-group {
+  position: relative;
+}
+
+/* Inputs */
+input, textarea {
+  width: 100%;
+  padding: 16px 14px;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 8px;
+  outline: none;
+  font-size: 15px;
+  background: #f9fafb;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+/* Textarea height */
+textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+/* Floating label default state */
+label {
+  position: absolute;
+  left: 14px;
+  top: 16px;
+  color: #6b7280;
+  font-size: 15px;
+  transition: all 0.2s ease-out;
+  pointer-events: none;
+  background: transparent;
+  padding: 0 4px;
+}
+
+/* Input Focus States */
+input:focus, textarea:focus {
+  border-color: #2563eb;
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+}
+
+/* Floating label active state (When focused or filled) */
+input:focus + label,
+input:not(:placeholder-shown) + label,
+textarea:focus + label,
+textarea:not(:placeholder-shown) + label {
+  top: -10px;
+  left: 12px;
+  font-size: 13px;
+  color: #2563eb;
+  background: #ffffff;
+  font-weight: 500;
+  border-radius: 4px;
+}
+
+/* Button */
+button {
+  margin-top: 32px;
+  width: 100%;
+  padding: 16px;
+  background: #2563eb; 
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.1s ease;
+}
+
+button:hover:not(:disabled) {
+  background: #1d4ed8;
+}
+
+button:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+button:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .container {
+    padding: 24px;
+    margin: 20px;
+  }
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}

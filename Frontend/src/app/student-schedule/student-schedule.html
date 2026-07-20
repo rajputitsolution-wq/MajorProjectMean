@@ -1,0 +1,38 @@
+<main class="student-page">
+  <app-student-sidebar></app-student-sidebar>
+
+  <section class="student-content">
+    <div class="section-header">
+      <h1>Schedule</h1>
+      <p>Only your class schedule is shown here.</p>
+    </div>
+
+    <div *ngIf="loading" class="loading-message">Loading schedule...</div>
+    <div *ngIf="!loading">
+      <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+      <div *ngIf="!errorMessage">
+        <div *ngIf="schedule.length; else noSchedule">
+          <table class="schedule-table">
+            <thead>
+              <tr>
+                <th>Day</th>
+                <th>Subject</th>
+                <th>Time</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of schedule">
+                <td>{{ item.day || 'N/A' }}</td>
+                <td>{{ item.subject || 'N/A' }}</td>
+                <td>{{ item.time || 'N/A' }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <ng-template #noSchedule>
+          <div class="empty-state">No schedule available.</div>
+        </ng-template>
+      </div>
+    </div>
+  </section>
+</main>

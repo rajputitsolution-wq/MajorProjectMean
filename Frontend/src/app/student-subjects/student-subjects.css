@@ -1,0 +1,35 @@
+.student-page {
+  display: flex;
+}
+
+.student-content {
+  flex: 1;
+  padding: 2rem;
+}
+
+.section-header {
+  margin-bottom: 1.5rem;
+}
+
+.subjects-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.subjects-table th,
+.subjects-table td {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 0.75rem;
+  text-align: left;
+}
+
+.empty-state,
+.loading-message,
+.error-message {
+  background: #fffbe6;
+  border: 1px solid #ffe58f;
+  color: #614700;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+}

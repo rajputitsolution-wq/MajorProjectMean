@@ -1,0 +1,40 @@
+<main class="student-page">
+  <app-student-sidebar></app-student-sidebar>
+
+  <section class="student-content">
+    <div class="section-header">
+      <h1>Subjects</h1>
+      <p>View your enrolled subjects and class details.</p>
+    </div>
+
+    <div class="section-body">
+      <div *ngIf="loading" class="loading-message">Loading subjects...</div>
+      <div *ngIf="!loading && errorMessage" class="error-message">{{ errorMessage }}</div>
+      <div *ngIf="!loading && !errorMessage">
+        <div class="profile-card">
+          <h2>Student Name</h2>
+          <p>{{ student?.name }}</p>
+        </div>
+        <table class="subjects-table">
+          <thead>
+            <tr>
+              <th>Subject</th>
+              <th>Teacher</th>
+              <th>Schedule</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let subject of student?.subjects || []">
+              <td>{{ subject.name }}</td>
+              <td>{{ subject.teacher }}</td>
+              <td>{{ subject.schedule }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <div *ngIf="!(student?.subjects?.length > 0)" class="empty-state">
+          No subjects assigned yet.
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

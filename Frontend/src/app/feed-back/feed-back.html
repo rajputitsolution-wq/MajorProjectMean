@@ -1,0 +1,15 @@
+<div class="container mt-4">
+  <h2 class="text-center mb-4">Student Feedback</h2>
+
+  <div class="feedback-scroll">
+    <div class="scroll-track">
+      <div class="feedback-card" *ngFor="let student of students">
+        <img [src]="student.image" alt="{{student.name}}" class="student-img">
+        <div class="feedback-text">
+          <h5>{{student.name}}</h5>
+          <p>"{{student.feedback}}"</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

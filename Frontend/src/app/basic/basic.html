@@ -1,0 +1,77 @@
+<app-navbar></app-navbar>
+
+
+
+<!-- FILTERS -->
+<div class="filter-section">
+
+  <button
+    [class.active]="selectedCategory === 'All'"
+    (click)="filterCourses('All')">
+    All Courses
+  </button>
+
+  <button
+    [class.active]="selectedCategory === 'Basic'"
+    (click)="filterCourses('Basic')">
+    Basic
+  </button>
+
+  <button
+    [class.active]="selectedCategory === 'Programming'"
+    (click)="filterCourses('Programming')">
+    Programming
+  </button>
+
+  <button
+    [class.active]="selectedCategory === 'Other'"
+    (click)="filterCourses('Other')">
+    Full Stack
+  </button>
+
+</div>
+
+<!-- COURSE GRID -->
+@if (filteredCourses.length > 0) {
+
+  <div class="course-grid">
+
+    @for (course of filteredCourses; track course._id) {
+
+      <div class="course-card">
+
+        <div class="card-content">
+
+          <span class="category">{{ course.category }}</span>
+
+          <div class="course-title">{{ course.name }}</div>
+
+          <div class="description">
+            {{ course.description }}
+          </div>
+
+          <div class="course-meta">
+            <span>⏱ {{ course.duration }}</span>
+            <span class="price">₹{{ course.fees }}</span>
+          </div>
+
+          <button class="enroll-btn" (click)="enquiry(course)">
+            Enquire Now
+          </button>
+
+        </div>
+
+      </div>
+
+    }
+
+  </div>
+
+} @else {
+
+  <div class="empty-state">
+    <h2>No Courses Found</h2>
+    <p>Try selecting another category</p>
+  </div>
+
+}

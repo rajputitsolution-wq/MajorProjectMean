@@ -1,0 +1,29 @@
+<main class="student-page">
+  <app-student-sidebar></app-student-sidebar>
+
+  <section class="student-content">
+    <div class="section-header">
+      <h1>Notices</h1>
+      <p>View announcements and important updates.</p>
+    </div>
+
+    <div *ngIf="loading" class="loading-message">Loading notices...</div>
+    <div *ngIf="!loading">
+      <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+      <div *ngIf="!errorMessage">
+        <div *ngIf="notices.length; else noNotices">
+          <ul class="notices-list">
+            <li *ngFor="let notice of notices" class="notice-item">
+              <h3>{{ notice.title }}</h3>
+              <p>{{ notice.message }}</p>
+              <div class="meta">{{ notice.createdAt | date:'medium' }}</div>
+            </li>
+          </ul>
+        </div>
+        <ng-template #noNotices>
+          <div class="empty-state">No notices available.</div>
+        </ng-template>
+      </div>
+    </div>
+  </section>
+</main>

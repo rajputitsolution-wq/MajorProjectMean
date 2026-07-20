@@ -1,0 +1,31 @@
+<main class="student-page">
+  <app-student-sidebar></app-student-sidebar>
+
+  <section class="student-content">
+    <div class="section-header">
+      <h1>Fees</h1>
+      <p>View your payment status and due amounts.</p>
+    </div>
+
+    <div *ngIf="loading" class="loading-message">Loading fees details...</div>
+    <div *ngIf="!loading">
+      <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+      <div *ngIf="!errorMessage">
+        <div class="fees-summary">
+          <div class="fees-card">
+            <h3>Total Fees</h3>
+            <p>{{ fees.total || 0 }}</p>
+          </div>
+          <div class="fees-card">
+            <h3>Paid</h3>
+            <p>{{ fees.paid || 0 }}</p>
+          </div>
+          <div class="fees-card">
+            <h3>Due</h3>
+            <p>{{ fees.due || 0 }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

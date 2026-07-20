@@ -1,0 +1,41 @@
+<div class="dashboard-layout">
+  <app-sidebar></app-sidebar>
+  <div class="dashboard-content">
+    <div class="dashboard-header">
+      <div>
+        <h1>Dashboard</h1>
+      </div>
+      <div class="header-actions">
+        <button class="btn-menu" (click)="toggleSidebar()">Menu</button>
+        <a routerLink="/certificates" class="btn-add-course">Certificates</a>
+        <a routerLink="/add-student" class="btn-add-course">Add Student</a>
+        <a routerLink="/add-course" class="btn-add-course">Add Course</a>
+        <a routerLink="/notices" class="btn-add-course">Add Notices</a>
+        <button class="btn-logout" (click)="logout()">Logout</button>
+      </div>
+    </div>
+
+    <div class="cards-row">
+      <div class="summary-card">
+        <div class="card-label">Total Courses</div>
+        <div class="card-value">{{ coursesCount }}</div>
+      </div>
+      <div class="summary-card">
+        <div class="card-label">Total Students</div>
+        <div class="card-value">{{ studentsCount }}</div>
+      </div>
+      <div class="summary-card">
+        <div class="card-label">Total Certificates</div>
+        <div class="card-value">{{ certificatesCount }}</div>
+      </div>
+      <div class="summary-card notice-card">
+        <div class="card-label">{{ noticeTitle }}</div>
+        <div class="card-note notice-text">{{ latestNotice }}</div>
+      </div>
+    </div>
+
+    <div class="dashboard-callout">
+      <h2>Course Categories</h2>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+<aside class="sidebar" [class.collapsed]="isSidebarCollapsed">
+  <div class="brand">
+    <i class="bx bxs-graduation"></i>
+    <div class="brand-text" *ngIf="!isSidebarCollapsed">
+      <h2>RAJPUT IT</h2>
+      <small>COMPUTER INSTITUTE</small>
+    </div>
+  </div>
+  <nav class="nav-menu">
+    <a routerLink="/dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="nav-item">
+      <i class="bx bx-grid-alt"></i>
+      <span *ngIf="!isSidebarCollapsed">Home</span>
+    </a>
+    <a routerLink="/certificates" class="nav-item">
+      <i class="bx bx-award"></i>
+      <span *ngIf="!isSidebarCollapsed">Certificates</span>
+    </a>
+    <a routerLink="/add-student" class="nav-item">
+      <i class="bx bx-user-plus"></i>
+      <span *ngIf="!isSidebarCollapsed">Add Student</span>
+    </a>
+    <a routerLink="/add-course" class="nav-item">
+      <i class="bx bx-book-add"></i>
+      <span *ngIf="!isSidebarCollapsed">Add Courses</span>
+    </a>
+    <a routerLink="/notices" class="nav-item">
+      <i class="bx bx-bell"></i>
+      <span *ngIf="!isSidebarCollapsed">Notices</span>
+    </a>
+    <a routerLink="/settings" class="nav-item">
+      <i class="bx bx-cog"></i>
+      <span *ngIf="!isSidebarCollapsed">Settings</span>
+    </a>
+  </nav>
+</aside>
+

@@ -1,0 +1,95 @@
+<app-navbar></app-navbar>
+
+<div class="container-fluid bg-light min-vh-100 d-flex align-items-center justify-content-center">
+
+  <div class="col-12 col-md-8 col-lg-6">
+
+    <!-- Title -->
+    <h2 class="text-center text-white mb-4 fw-bold">
+      Certificate Verification Portal
+    </h2>
+
+    <!-- Search Card -->
+    <div class="card shadow-lg p-3 mb-4 border-0 rounded-4">
+      <form (ngSubmit)="getCertificate()" #f="ngForm" class="row g-2">
+
+        <div class="col-12 col-md-9">
+          <input type="text"
+                 class="form-control form-control-lg"
+                 name="certificateNo"
+                 [(ngModel)]="certificateNo"
+                 placeholder="Enter Certificate Number(last 5 digit)"
+                 required>
+        </div>
+
+        <div class="col-12 col-md-3">
+          <button type="submit"
+                  class="btn btn-warning btn-lg w-100"
+                  [disabled]="f.invalid">
+            Search
+          </button>
+        </div>
+
+      </form>
+    </div>
+
+    <!-- Message -->
+    <div *ngIf="message" class="alert mt-3 mb-0 d-flex align-items-center gap-2 text-danger fw-bold">
+      <i class="bi bi-exclamation-triangle-fill"></i>
+      {{ message }}
+    </div>
+
+    <!-- Certificate Display (Now safely inside the column div!) -->
+    <div *ngIf="certificateData" class="card shadow-lg border-0 rounded-4 p-4 position-relative overflow-hidden mt-4">
+
+      <!-- Background glow -->
+      <div class="position-absolute top-0 start-0 w-100 h-100 bg-light opacity-25"></div>
+
+      <!-- Content -->
+      <div class="position-relative">
+        <div class="text-center mb-3">
+          <span class="badge bg-success fs-6 px-3 py-2">✔ VERIFIED</span>
+        </div>
+
+        <h3 class="text-center text-primary fw-bold mb-3">
+          Certificate of Completion
+        </h3>
+
+        <p class="text-center text-muted mb-4">
+          This certificate is digitally verified and issued successfully
+        </p>
+
+        <hr>
+
+        <div class="row mb-2">
+          <div class="col-5 fw-bold">Certificate No:</div>
+          <!-- Note: I added the remaining part of the cert number format based on your text -->
+          <div class="col-7">RITS/2026/{{ certificateData.certNo }}</div>
+        </div>
+
+        <div class="row mb-2">
+          <div class="col-5 fw-bold">Name:</div>
+          <div class="col-7">{{ certificateData.studentName }}</div>
+        </div>
+
+        <div class="row mb-2">
+          <div class="col-5 fw-bold">Course:</div>
+          <div class="col-7">{{ certificateData.courseName }}</div>
+        </div>
+
+        <div class="row mb-2">
+          <div class="col-5 fw-bold">Issued Date:</div>
+          <div class="col-7">{{ certificateData.issuedDate | date }}</div>
+        </div>
+
+        <hr>
+
+        <div class="text-end text-warning fw-bold">
+          🏅 Official Verified Certificate
+        </div>
+      </div>
+      
+    </div> <!-- /Certificate Display -->
+
+  </div> <!-- /End of col-12 col-md-8 col-lg-6 -->
+</div> <!-- /End of container-fluid -->

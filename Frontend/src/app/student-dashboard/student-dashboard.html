@@ -1,0 +1,44 @@
+<div class="student-layout">
+  <app-student-sidebar></app-student-sidebar>
+
+  <main class="student-main">
+    <div class="dashboard-header">
+      <h1>Student Dashboard</h1>
+      <p>Your personal navigation and summary page.</p>
+    </div>
+
+    <div *ngIf="loading" class="loader">Loading dashboard...</div>
+
+    <div *ngIf="!loading">
+      <div class="notice error" *ngIf="errorMessage">{{ errorMessage }}</div>
+
+      <div class="student-summary-cards">
+        <div class="summary-card">
+          <h3>Attendance</h3>
+          <p>{{ student?.attendance?.length || 0 }} Records</p>
+        </div>
+        <div class="summary-card">
+          <h3>Subjects</h3>
+          <p>{{ student?.subjects?.length || 0 }}</p>
+        </div>
+        <div class="summary-card">
+          <h3>Certificates</h3>
+          <p>{{ student?.certificates?.length || 0 }}</p>
+        </div>
+        <div class="summary-card">
+          <h3>Notices</h3>
+          <p>{{ student?.notices?.length || 0 }}</p>
+        </div>
+      </div>
+
+      <div class="section-card">
+        <h3>Next Actions</h3>
+        <ul>
+          <li>Use the sidebar to open Profile, Attendance, Schedule, Certificates, Fees, and Notices.</li>
+          <li>Only the selected section is shown on its page.</li>
+          <li>Logout from the sidebar when finished.</li>
+        </ul>
+      </div>
+    </div>
+  </main>
+</div>

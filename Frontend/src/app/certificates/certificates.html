@@ -1,0 +1,53 @@
+<div class="page-layout">
+  <app-sidebar></app-sidebar>
+  <div class="page-content">
+    <div class="page-heading">
+        <div class="heading-left">
+          <h1>Certificates</h1>
+        </div>
+        <div class="heading-right">
+          <button class="btn-menu" (click)="toggleSidebar()">Menu</button>
+          <a routerLink="/dashboard" class="btn-back">Back to Dashboard</a>
+        </div>
+    </div>
+
+    <form class="item-form" (ngSubmit)="saveCertificate()">
+       <label>Certificate No</label>
+      <input type="text" [(ngModel)]="certNo" name="certNo" required />
+
+      <label>Student Name</label>
+      <input type="text" [(ngModel)]="studentName" name="studentName" required />
+
+      <label>Course Name</label>
+      <input type="text" [(ngModel)]="courseName" name="courseName" required />
+
+      <label>Issued Date</label>
+      <input type="date" [(ngModel)]="issuedDate" name="issuedDate" />
+
+      <label>Status</label>
+      <select [(ngModel)]="status" name="status">
+        <option value="Issued">Issued</option>
+        <option value="Pending">Pending</option>
+        <option value="Expired">Expired</option>
+      </select>
+
+      <button type="submit" class="btn-save">Save Certificate</button>
+      <span *ngIf="saved" class="saved-message">Certificate saved successfully.</span>
+    </form>
+
+    <div class="item-list">
+      <h2>Certificates</h2>
+      <div *ngIf="certificates.length; else noCertificates">
+        <div *ngFor="let certificate of certificates" class="item-card">
+          <strong>{{ certificate.studentName }}</strong>
+          <p>{{ certificate.courseName }}</p>
+          <p>{{ certificate.status }}</p>
+          <small>{{ certificate.issuedDate | date:'mediumDate' }}</small>
+        </div>
+      </div>
+      <ng-template #noCertificates>
+        <p>No certificates added yet.</p>
+      </ng-template>
+    </div>
+  </div>
+</div>

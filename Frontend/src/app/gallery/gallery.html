@@ -1,0 +1,14 @@
+<div class="container mt-4">
+  <h2 class="text-center mb-4">Image Gallery</h2>
+
+  <div class="gallery-scroll">
+    <div class="scroll-track">
+      <div class="gallery-card" *ngFor="let image of images">
+        <img [src]="image.Image" alt="{{image.title}}" class="gallery-img">
+        <div class="gallery-text">
+          <h5>{{image.title}}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

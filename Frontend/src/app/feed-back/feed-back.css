@@ -1,0 +1,62 @@
+.feedback-scroll {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.scroll-track {
+  display: flex;
+  width: max-content;
+  animation: scroll-left 25s linear infinite;
+}
+
+.feedback-card {
+  flex: 0 0 auto;
+  width: 280px;
+  margin: 0 15px;
+  background: White;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px Gray;
+  text-align: center;
+  padding: 15px;
+  transition: transform 0.3s;
+}
+
+.feedback-card:hover {
+  transform: scale(1.05);
+}
+
+.student-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+  border: 2px solid Gold;
+}
+
+.feedback-text h5 {
+  margin: 5px 0;
+  font-size: 1.1rem;
+  color: MidnightBlue;
+}
+
+.feedback-text p {
+  font-size: 0.95rem;
+  color: DimGray;
+}
+
+@keyframes scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@media (max-width: 768px) {
+  .feedback-card {
+    width: 220px;
+    margin: 0 10px;
+  }
+  .feedback-text p {
+    font-size: 0.85rem;
+  }
+}

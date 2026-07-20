@@ -1,0 +1,79 @@
+/* ===== NAVBAR BACKGROUND (GLASS + GRADIENT) ===== */
+.custom-navbar {
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+  padding: 12px 20px;
+}
+
+/* ===== BRAND ===== */
+.custom-navbar .navbar-brand {
+  font-size: 22px;
+  font-weight: 700;
+  color: #ffffff !important;
+  letter-spacing: 0.5px;
+  transition: 0.3s;
+}
+
+.custom-navbar .navbar-brand:hover {
+  color: #facc15 !important;
+  transform: scale(1.05);
+}
+
+/* ===== NAV LINKS ===== */
+.custom-navbar .nav-link {
+  color: #ffffff !important;
+  font-weight: 500;
+  margin: 0 8px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+/* hover effect */
+.custom-navbar .nav-link:hover {
+  background: rgba(255,255,255,0.08);
+  color: #facc15 !important;
+  transform: translateY(-2px);
+}
+
+/* animated underline */
+.custom-navbar .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 2px;
+  width: 0%;
+  height: 2px;
+  background: #facc15;
+  transition: 0.3s;
+  transform: translateX(-50%);
+}
+
+.custom-navbar .nav-link:hover::after {
+  width: 70%;
+}
+
+/* active link */
+.custom-navbar .nav-link.active {
+  color: #facc15 !important;
+  font-weight: 600;
+}
+
+/* ===== MOBILE MENU ===== */
+@media (max-width: 768px) {
+
+  .custom-navbar .navbar-nav {
+    background: #0f172a;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+  }
+
+  .custom-navbar .nav-link {
+    margin: 5px 0;
+    display: block;
+  }
+}

@@ -1,0 +1,52 @@
+<nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
+
+  <div class="container-fluid">
+
+    <!-- Brand -->
+    <a class="navbar-brand fw-bold" routerLink="/home">
+      RAJPUT IT INSTITUTE
+    </a>
+
+    <!-- Toggle -->
+    <button class="navbar-toggler" type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavDropdown">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Menu -->
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+
+      <ul class="navbar-nav ms-auto">
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/home" routerLinkActive="active">Home</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/about" routerLinkActive="active">About Us</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/courses" routerLinkActive="active">Courses</a>
+        </li>
+        <!--
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/student-login" routerLinkActive="active">Student Login</a>
+        </li> -->
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/verify-certificate" routerLinkActive="active">Verify Certificate</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/enquiry" routerLinkActive="active">Enquiry</a>
+        </li>
+
+      </ul>
+
+    </div>
+
+  </div>
+</nav>
+
+<router-outlet></router-outlet>

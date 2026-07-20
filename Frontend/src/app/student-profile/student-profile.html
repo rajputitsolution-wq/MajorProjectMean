@@ -1,0 +1,58 @@
+<div class="student-layout">
+  <app-student-sidebar></app-student-sidebar>
+
+  <main class="student-main">
+    <div class="dashboard-header">
+      <h1>Profile</h1>
+      <p>View your basic details and change your password.</p>
+    </div>
+
+    <div class="container-fluid mt-3">
+      <div class="row shadow p-4 col-md-10 mx-auto">
+        <h2 class="text-center mb-4">Student Profile</h2>
+
+        <div *ngIf="isLoading" class="text-center">
+          <p>Loading student profile...</p>
+        </div>
+
+        <div *ngIf="errorMessage && !isLoading" class="alert alert-danger">{{ errorMessage }}</div>
+
+        <div *ngIf="student && !isLoading">
+          <div class="card mb-4">
+            <div class="card-body">
+              <h4 class="card-title">Personal Details</h4>
+              <p><strong>Name:</strong> {{ student.name }}</p>
+              <p><strong>Email:</strong> {{ student.email }}</p>
+              <p><strong>Phone:</strong> {{ student.phone || 'Not provided' }}</p>
+              <p><strong>Course:</strong> {{ student.course || 'Not provided' }}</p>
+              <p><strong>Registered:</strong> {{ student.createdAt | date: 'medium' }}</p>
+            </div>
+          </div>
+
+          <div class="card mb-4">
+            <div class="card-body">
+              <h5 class="card-title">Change Password</h5>
+              <div *ngIf="successMessage" class="alert alert-success">{{ successMessage }}</div>
+              <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+              <form [formGroup]="passwordForm" (ngSubmit)="changePassword()">
+                <div class="mb-3">
+                  <label class="form-label">Current Password</label>
+                  <input type="password" class="form-control" formControlName="oldPassword" />
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">New Password</label>
+                  <input type="password" class="form-control" formControlName="newPassword" />
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Confirm New Password</label>
+                  <input type="password" class="form-control" formControlName="confirmPassword" />
+                </div>
+                <button type="submit" class="btn btn-primary">Update Password</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

@@ -1,0 +1,58 @@
+<footer class="bg-dark text-white pt-3 pb-4 mt-3">
+  <div class="container">
+    <div class="row">
+
+      <!-- About Us -->
+      <div class="col-md-3">
+        <h5 class="text-uppercase text-info mb-4">About Us</h5>
+        <p>Rajput IT Solutions delivers innovative software and IT services to empower businesses with technology.</p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="col-md-3 quick-links">
+        <h5 class="text-uppercase text-info mb-4">Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-white text-decoration-none">Home</a></li>
+          <li><a href="#" class="text-white text-decoration-none">About Us</a></li>
+          <li><a href="#" class="text-white text-decoration-none">Contact</a></li>
+          <li><a href="#" class="text-white text-decoration-none">Courses</a></li>
+          <li><a href="#" class="text-white text-decoration-none">Register</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="col-md-3">
+        <h5 class="text-uppercase text-info mb-4">Contact</h5>
+        <p><a href="https://maps.app.goo.gl/vdSGJk6cmcgdZboF9" target="_blank" class="text-white text-decoration-none">
+          <i class="bi bi-geo-alt-fill"></i> Location
+        </a></p>
+        <p><i class="bi bi-envelope-fill"></i> info@rajputitsolutions.com</p>
+        <p><i class="bi bi-telephone-fill"></i> +91 98765 43210</p>
+      </div>
+      <!-- Newsletter -->
+      <div class="col-md-3">
+        <h5 class="text-uppercase text-info mb-3">Subscribe</h5>
+        <form #subscribeForm="ngForm">
+          <input type="email" class="form-control mb-3" 
+          placeholder="Enter your email" name="email"[(ngModel)]="email" required email>
+          <div class="d-flex align-items-center">
+            <button type="button" (click)="toggle()" class="btn1 me-3 rounded p-2 text-center flex-grow-1"
+            [disabled]="!subscribeForm.valid">
+              Subscribe
+            </button>
+            <div [ngClass]="{'red':!status, 'green':status}" class="status-box rounded p-2 text-center flex-grow-1">
+              {{ status ? 'Subscribed' : '!Subscribed' }}
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <hr class="my-4">
+    <!-- Bottom Row -->
+    <div class="row">
+      <div class="col-md-6">
+        <p class="mb-0">&copy; 2026 Rajput IT Solutions. All Rights Reserved.</p>
+      </div>
+    </div>
+  </div>
+</footer>

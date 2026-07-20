@@ -1,0 +1,29 @@
+<main class="student-page">
+  <app-student-sidebar></app-student-sidebar>
+
+  <section class="student-content">
+    <div class="section-header">
+      <h1>Certificates</h1>
+      <p>View your earned certificates and completion details.</p>
+    </div>
+
+    <div *ngIf="loading" class="loading-message">Loading certificates...</div>
+    <div *ngIf="!loading">
+      <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+      <div *ngIf="!errorMessage">
+        <div *ngIf="certificates.length; else noCertificates">
+          <ul class="certificates-list">
+            <li *ngFor="let certificate of certificates">
+              <h3>{{ certificate.title || certificate.courseName || 'Certificate' }}</h3>
+              <p>Status: {{ certificate.status || 'Complete' }}</p>
+              <p>Issued: {{ certificate.issuedDate | date:'mediumDate' }}</p>
+            </li>
+          </ul>
+        </div>
+        <ng-template #noCertificates>
+          <div class="empty-state">No certificates available.</div>
+        </ng-template>
+      </div>
+    </div>
+  </section>
+</main>
